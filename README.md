@@ -157,4 +157,5 @@
 6. Google　Analytics(Googleアナリティクスタグ（GA4）) 
 7. 画像の本番保存（gem "aws-sdk-s3"）
 
-## 技術スタック
+### FigmaのURL: 
+https://www.figma.com/design/9soHkI5Neb6I7XiVSOXpbf/%E7%84%A1%E9%A1%8C?node-id=0-1&t=Mi1VWCH77lt7YZ6s-1
