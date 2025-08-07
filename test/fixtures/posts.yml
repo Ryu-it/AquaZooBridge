@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: MyString
+  body: MyText
+  user: one
+  category: one
+  area: one
+  facility: one
+
+two:
+  word: MyString
+  body: MyText
+  user: two
+  category: two
+  area: two
+  facility: two
