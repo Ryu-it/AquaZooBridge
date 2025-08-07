@@ -4,10 +4,14 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
 import BackgroundController from "./background_controller"
-import ToggleController from "./toggle_controller"
-
-application.register("hello", HelloController)
 application.register("background", BackgroundController)
+
+import HamburgerController from "./hamburger_controller"
+application.register("hamburger", HamburgerController)
+
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
+import ToggleController from "./toggle_controller"
 application.register("toggle", ToggleController)
