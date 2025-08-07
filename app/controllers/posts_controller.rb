@@ -1,4 +1,17 @@
 class PostsController < ApplicationController
+  def index
+    @posts = Post.includes(:user)
+    case params[:category]
+    when "zoo"
+      render "zoo_index"
+    when "aqua"
+      render "aqua_index"
+    end
+  end
+
+  def show
+  end
+
   def new
     @post = Post.new
     @post.build_facility
