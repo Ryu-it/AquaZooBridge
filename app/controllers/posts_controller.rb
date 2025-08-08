@@ -51,6 +51,7 @@ class PostsController < ApplicationController
     :word,
     :body,
     :area_id,
+    :image,
     facility_attributes: [ :name ]
     )
   end

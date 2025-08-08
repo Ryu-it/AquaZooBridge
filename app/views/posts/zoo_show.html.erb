@@ -1,14 +1,21 @@
 <%= render "shared/zoo_header" %>
 <div class = "flex items-center justify-center bg-lime-900 min-h-screen">
-    <div class="w-full max-w-6xl px-2 my-16 h-[600px]">
+    <div class="w-full max-w-6xl px-2 my-16">
         <div class="bg-amber-700 border rounded-lg shadow-md p-4">
             <div class="font-bold text-xl">
                 <%= @post.user.name %>
             </div>
-            <div class="mt-14 font-bold text-xl">
+            <div class="mt-10 mb-4 font-bold text-xl">
                 <%= @post.facility.name %> （ <%= @post.area.name %> ）
             </div>
-            <div class= "rounded-lg p-8 border bg-lime-900 text-xl text-white text-center mt-4 mb-4"> 
+            <div class="">
+                <% if @post.image.attached? %>
+                    <%= image_tag @post.image %>
+                <% else %>
+                    <%= image_tag "kirin.png", class: "" %>
+                <% end %>
+            </div>
+            <div class= "mb-8 mt-10 rounded-lg p-8 border bg-lime-900 text-xl text-center"> 
                 「 <%= @post.body %> 」 
             </div>
         </div>

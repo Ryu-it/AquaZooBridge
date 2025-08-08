@@ -33,6 +33,10 @@
             { include_blank: "選択してください" },
             class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
   </div>
+  <div class="">
+            <%= f.label :image, "画像をアップロード" %>
+            <%= f.file_field :image, class: "bg-sky-300 mt-2 block w-full border rounded-md p-3 focus:ring-sky-500 focus:border-sky-500" %>
+  </div>
   <%= hidden_field_tag :category, "aqua" %>
   <div class="">
         <%= f.submit "投稿", class: "bg-neutral-300 hover:bg-neutral-500 py-2 px-4 rounded-md shadow-md transition duration-300" %>
