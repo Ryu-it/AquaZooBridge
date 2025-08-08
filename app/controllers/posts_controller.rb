@@ -10,6 +10,14 @@ class PostsController < ApplicationController
   end
 
   def show
+    case params[:category]
+    when "zoo"
+      @post = Post.find(params[:id])
+      render "zoo_show"
+    when "aqua"
+      @post = Post.find(params[:id])
+      render "aqua_show"
+    end
   end
 
   def new

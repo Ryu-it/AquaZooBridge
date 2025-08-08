@@ -1,0 +1,16 @@
+<%= render "shared/aqua_header" %>
+<div class = "flex items-center justify-center bg-sky-900 min-h-screen">
+    <div class="w-full max-w-6xl px-2 my-16 h-[600px]">
+        <div class="bg-sky-300 border rounded-lg shadow-md p-4">
+            <div class="font-bold text-xl">
+                <%= @post.user.name %>
+            </div>
+            <div class="mt-14 font-bold text-xl">
+                <%= @post.facility.name %> （ <%= @post.area.name %> ）
+            </div>
+            <div class= "rounded-lg p-8 border bg-sky-900 text-xl text-white text-center mt-4 mb-4"> 
+                「 <%= @post.body %> 」 
+            </div>
+        </div>
+    </div>
+</div>

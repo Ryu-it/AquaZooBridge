@@ -13,5 +13,8 @@ application.register("hamburger", HamburgerController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import RedirectController from "./redirect_controller"
+application.register("redirect", RedirectController)
+
 import ToggleController from "./toggle_controller"
 application.register("toggle", ToggleController)
