@@ -59,12 +59,19 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.category = Category.find_by(name: params[:category])
     if @post.update(post_params)
-      flash[:notice] = "投稿に成功しました"
+      flash[:notice] = "編集に成功しました"
       redirect_to root_path
     else
-      flash.now[:alert] = "投稿に失敗しました"
+      flash.now[:alert] = "編集に失敗しました"
       render :aqua_edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = "削除に成功しました"
+    redirect_to root_path
   end
 
   private
