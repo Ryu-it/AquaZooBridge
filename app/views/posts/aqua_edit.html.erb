@@ -1,0 +1,45 @@
+<%= render "shared/aqua_header" %>
+<div class = "flex items-center justify-center h-full bg-sky-900 min-h-screen">
+
+<%# あとでsharesにメッセージは格納する %>
+<% flash.each do |key, message| %>
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md shadow-md mb-4">
+  <div class="<%= key %>"><%= message %></div>
+</div>
+<% end %>
+
+  <%= form_with model: @post, class: "space-y-4 w-full max-w-xl" do |f| %>
+  <div class="">
+    <%= f.fields_for :facility do |facility_fields| %>
+      <%= facility_fields.label :name, "水族館の名前", class: "text-white" %>
+      <%= facility_fields.text_field :name,
+            placeholder: "例：すみだ水族館",
+            class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
+    <% end %>
+  </div>
+  <div class="">
+            <%= f.label :word, "ひとこと", class: "text-white" %>
+            <%= f.text_field :word,
+            placeholder: "例：ペンギン！！",
+            class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
+  </div>
+  <div class="">
+            <%= f.label :body, "ここが好き！", class: "text-white" %>
+            <%= f.text_area :body, class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500", rows: "10" %>
+  </div>
+  <div class="">
+            <%= f.label :area_id, "都道府県", class: "text-white" %>
+            <%= f.select :area_id, Area.all.collect { |p| [p.name, p.id] },
+            { include_blank: "選択してください" },
+            class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
+  </div>
+  <div class="">
+            <%= f.label :image, "画像をアップロード" %>
+            <%= f.file_field :image, class: "bg-sky-300 mt-2 block w-full border rounded-md p-3 focus:ring-sky-500 focus:border-sky-500" %>
+  </div>
+  <%= hidden_field_tag :category, "aqua" %>
+  <div class="">
+        <%= f.submit "編集", class: "bg-neutral-300 hover:bg-neutral-500 py-2 px-4 rounded-md shadow-md transition duration-300" %>
+  </div>
+  <% end %>
+</div>

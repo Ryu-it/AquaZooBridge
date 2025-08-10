@@ -44,6 +44,29 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    case params[:category]
+    when "zoo"
+      @post = Post.find(params[:id])
+      render "zoo_edit"
+    when "aqua"
+      @post = Post.find(params[:id])
+      render "aqua_edit"
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.category = Category.find_by(name: params[:category])
+    if @post.update(post_params)
+      flash[:notice] = "投稿に成功しました"
+      redirect_to root_path
+    else
+      flash.now[:alert] = "投稿に失敗しました"
+      render :aqua_edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def post_params
