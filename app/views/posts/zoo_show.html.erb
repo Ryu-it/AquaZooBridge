@@ -19,5 +19,8 @@
                 「 <%= @post.body %> 」 
             </div>
         </div>
+            <div class="flex justify-center items-center mt-8 text-xl text-white">
+                <%= link_to "編集", edit_post_path(category: "zoo"), class: "" %>
+            </div>
     </div>
 </div>
