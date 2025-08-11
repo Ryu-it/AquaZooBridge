@@ -14,7 +14,7 @@
     <div class="text-center space-y-6 border bg-white max-w-md w-full p-8 rounded-xl text-lg">
       <div><%= current_user.name %></div>
       <div><%= current_user.email %></div>
-      <div><%= link_to "編集", "#", class: "underline text-sky-700" %></div>
+      <div><%= link_to "編集", edit_user_registration_path, class: "underline text-sky-700" %></div>
     </div>
     <!-- ユーザーの投稿 -->
   <div class = "flex items-center justify-center ">
