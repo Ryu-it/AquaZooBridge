@@ -9,7 +9,7 @@
       <button data-action="click->toggle#toggle" class="text-black cursor-pointer">
         投稿
       </button>
-      <div data-toggle-target="menu" class="absolute mt-8 w-60 bg-yellow-100 text-black rounded shadow-lg hidden">
+      <div data-toggle-target="menu" class="absolute w-60 mt-8 bg-yellow-100 text-black rounded shadow-lg hidden">
         <%= link_to "動物園を投稿する", new_post_path(category: "zoo"), class: "block px-4 py-2 hover:bg-gray-100" %>
         <%= link_to "水族館を投稿する", new_post_path(category: "aqua"), class: "block px-4 py-2 hover:bg-gray-100" %>
       </div>
@@ -18,9 +18,23 @@
     <div>
       <%= link_to "通知", "#" %>
     </div>
-    <div>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+      <%#　stimulusでハンバーカーメニューを表示 %>
+    <div data-controller="hamburger" class="relative inline-block">
+      <button data-action="click->hamburger#toggle" class="p-2">
+    <!-- 三本線アイコン -->
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+      <%#　ここからメニューをクリックした後の表示 %>
+      <div data-hamburger-target="menu" class = "absolute mt-2 right-0 w-40 bg-yellow-100 text-black rounded shadow-lg hidden">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "block px-4 py-2 hover:bg-gray-100" %>
+        <%= link_to "マイページ", profile_path, class: "block px-4 py-2 hover:bg-gray-100" %>
+        <%= link_to "ランキング", "#", class: "block px-4 py-2 hover:bg-gray-100" %>
+      </div>
     </div>
+
   <% else %>
   <div class="flex space-x-4">
     <div>
