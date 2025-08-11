@@ -28,6 +28,7 @@ ja:
         name: 名前
     models:
       user:
+        one: ユーザー
         other: ユーザー
   devise:
     confirmations:
