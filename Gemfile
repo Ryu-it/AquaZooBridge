@@ -65,6 +65,7 @@ end
 gem "devise", "~> 4.9"
 # deviseの日本語化
 gem "devise-i18n"
+gem "rails-i18n"
 
 # RailsとS3の連携
 gem "aws-sdk-s3"
