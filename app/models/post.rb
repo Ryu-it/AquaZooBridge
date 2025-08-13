@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   # == ActiveStorage ==
   has_one_attached :image
 
+  has_many :likes
+
   belongs_to :user
   belongs_to :category
   belongs_to :area
