@@ -24,7 +24,21 @@
         <div class="flex justify-center items-center mt-8 text-xl text-white space-x-12">
             <%= link_to "編集", edit_post_path(category: "aqua"), class: "" %>
             <%= link_to "削除", post_path(@post), method: :delete, data: { turbo_method: :delete }, class: "" %>
+        </div>
             <% end %>
+        <div class="line-share-button mt-8 flex justify-center items-center">
+            <div class="line-it-button" 
+                 data-lang="ja" 
+                 data-type="share-a" 
+                 data-env="REAL"
+                 data-url="<%= post_url(@post) %>" 
+                 data-text="<%= @post.facility.name %>" 
+                 data-color="default" 
+                 data-size="large" 
+                 data-count="true" 
+                 data-ver="3" 
+                 style="display: none;">
+            </div>
         </div>
     </div>
 </div>
