@@ -18,6 +18,11 @@
             <div class= "mt-10 rounded-lg p-8 border bg-sky-900 text-xl text-white text-center"> 
                 <%= @post.body %>  
             </div>
+            <div>
+                <%= link_to "いいね", likes_path(post_id: @post.id), 
+                method: :post, 
+                data: { "turbo-method": :post } %>
+            </div>
         </div>
             <%# 投稿したユーザーだけが編集・投稿できる　　%>
             <% if user_signed_in? && current_user.id == @post.user_id %>

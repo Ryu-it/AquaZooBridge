@@ -6,27 +6,32 @@
       <% if post.category.name == "zoo" %>
       <div class="h-full card-body bg-amber-700 border rounded-xl shadow-md p-4 flex flex-col justify-between">
         <%# 投稿をクリックしたときに詳細のurlに飛ぶように %>
-      <div
+        <div
   data-controller="redirect"
   data-redirect-url-value="<%= post_path(post, category: 'zoo') %>"
   data-action="click->redirect#navigate"
   role="button"
   class="cursor-pointer"
   data-turbo="false">
-        <div class= "inline-block p-2 text-center mt-4 mb-4 bg-lime-900 rounded-xl"> 
-          <%= post.user.name %> 
-        </div>
-        <div class= "p-4 text-xl font-bold text-center mt-4 mb-4 bg-lime-900 rounded-xl"> 
-          「 <%= post.word %> 」 
-        </div>
-        <div class="">
+          <div class= "inline-block p-2 text-center mt-4 mb-4 bg-lime-900 rounded-xl"> 
+            <%= post.user.name %> 
+          </div>
+          <div class= "p-4 text-xl font-bold text-center mt-4 mb-4 bg-lime-900 rounded-xl"> 
+            「 <%= post.word %> 」 
+          </div>
+          <div class="">
             <% if post.image.attached? %>
               <%= image_tag post.image %>
             <% else %>
               <%= image_tag "kirin.png", class: "" %>
             <% end %>
+          </div>
         </div>
-      </div>
+        <div>
+          <%= link_to "いいね", likes_path(post_id: post.id), 
+            method: :post, 
+            data: { "turbo-method": :post } %>
+        </div>
       </div>
       <% end %>
     <% end %>
