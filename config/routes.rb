@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     resources :likes, only: %i[create destroy]
 
   resource :profile, only: %i[show update]
+
+  resources :notifications, only: %i[index]
 end

@@ -15,10 +15,12 @@
       </div>
     </div>
   </div>
-    <div>
-      <%= link_to "通知", "#" %>
-    </div>
-
+    <%= link_to notifications_path do %>
+      通知
+      <% if @unread_notifications_count > 0 %>
+        <span class=""><%= @unread_notifications_count %></span>
+      <% end %>
+    <% end %>
 <div data-controller="hamburger" class="relative">
   <!-- ハンバーガーアイコン -->
   <button data-action="click->hamburger#toggle" class="p-2">

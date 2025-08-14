@@ -1,0 +1,23 @@
+<%= render "shared/normal_header" %>
+<div 
+  data-controller="background"
+  data-background-target="bg"
+  data-background-sky-class="bg-sky-900"
+  data-background-lime-class="bg-lime-900"
+  class="w-full h-screen transition-colors duration-1000 bg-sky-900"
+>
+
+<div class="flex flex-col items-center gap-8 py-10">
+<div class="text-center space-y-6 border bg-white max-w-md w-full p-8 rounded-xl text-lg">
+<% if @notifications.present? %>
+    <% @notifications.each do |notification| %>
+
+    <!-- 通知者の情報 -->
+        <div class = "">
+          <%= notification.visitor.name %>さんがいいねしました
+        </div>
+    <% end %>
+<% end %>
+</div>
+</div>
+</div>
