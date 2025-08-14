@@ -45,6 +45,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # .envの環境変数を読み込む
+  gem "dotenv-rails", require: false
 end
 
 group :development do
@@ -69,3 +72,8 @@ gem "rails-i18n"
 
 # RailsとS3の連携
 gem "aws-sdk-s3"
+
+# 三番目はGoogleセキュリティー強化
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
