@@ -125,7 +125,7 @@ class PostsController < ApplicationController
     :body,
     :area_id,
     :image,
-    facility_attributes: [ :name ]
+    facility_attributes: [ :name, :official_url ]
     )
   end
 end

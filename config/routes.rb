@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show update]
 
   resources :notifications, only: %i[index]
+
+  resource :lookups, only: %i[create]
 end
