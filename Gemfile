@@ -77,3 +77,6 @@ gem "aws-sdk-s3"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
+
+# HTTPリクエストを送る＋レスポンスをRubyのハッシュ形式に
+gem "httparty"

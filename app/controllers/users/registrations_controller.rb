@@ -61,11 +61,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+  # uidを生成して代入
   def build_resource(hash = {})
     hash[:uid] = User.create_unique_string
     super
   end
 
+  # ユーザー情報の更新を簡単にするメソッド
   def update_resource(resource, params)
     return super if params["password"].present?
 

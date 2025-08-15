@@ -13,6 +13,9 @@ application.register("hamburger", HamburgerController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LookupController from "./lookup_controller"
+application.register("lookup", LookupController)
+
 import RedirectController from "./redirect_controller"
 application.register("redirect", RedirectController)
 
