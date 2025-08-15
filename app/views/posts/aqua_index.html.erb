@@ -27,11 +27,13 @@
               <% end %>
           </div>
         </div>
+        <% if user_signed_in? %>
         <div>
           <%= link_to "いいね", likes_path(post_id: post.id), 
             method: :post, 
             data: { "turbo-method": :post } %>
         </div>
+        <% end %>
       </div>
       <% end %>
     <% end %>

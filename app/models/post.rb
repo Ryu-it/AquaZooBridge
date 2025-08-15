@@ -10,4 +10,7 @@ class Post < ApplicationRecord
   belongs_to :facility
 
   accepts_nested_attributes_for :facility
+
+  validates :word, presence: true, length: { maximum: 50 }
+  validates :body, presence: true, length: { maximum: 500 }
 end
