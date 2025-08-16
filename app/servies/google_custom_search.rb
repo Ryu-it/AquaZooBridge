@@ -7,6 +7,7 @@ class GoogleCustomSearch
     @cx      = cx
   end
 
+  # 検索リクエストを送受信して、URLを取得
   def official_site_url_for(name)
     res = self.class.get("", query: {
       key: @api_key, cx: @cx,
