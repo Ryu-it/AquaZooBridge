@@ -1,0 +1,3 @@
+--require spec_helper
+# テスト名が表示される
+--format documentation
