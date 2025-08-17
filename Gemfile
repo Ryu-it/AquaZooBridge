@@ -48,6 +48,8 @@ group :development, :test do
 
   # .envの環境変数を読み込む
   gem "dotenv-rails", require: false
+
+  gem "rspec-rails"
 end
 
 group :development do
@@ -80,3 +82,6 @@ gem "omniauth-rails_csrf_protection"
 
 # HTTPリクエストを送る＋レスポンスをRubyのハッシュ形式に
 gem "httparty"
+
+# 画像の変換
+gem "image_processing", "~> 1.2"

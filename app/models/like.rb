@@ -4,6 +4,8 @@ class Like < ApplicationRecord
 
   has_many :notifications, as: :notificable, dependent: :destroy
 
+  validates :user_id, uniqueness: { scope: :post_id }
+
   # いいね作成時に通知を作成
   after_create :create_notification
 
