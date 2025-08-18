@@ -85,3 +85,6 @@ gem "httparty"
 
 # 画像の変換
 gem "image_processing", "~> 1.2"
+
+# fontawesomeの導入
+gem "font-awesome-sass", "~> 6.0"

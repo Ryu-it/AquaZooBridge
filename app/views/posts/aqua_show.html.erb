@@ -24,10 +24,13 @@
                 <%= link_to @post.facility.official_url, @post.facility.official_url, target: "_blank", rel: "noopener" %> 
             </div>
             <% if user_signed_in? %>
-            <div>
-                <%= link_to "いいね", likes_path(post_id: @post.id), 
+            <div class = "mt-6">
+                <%= link_to likes_path(post_id: @post.id), 
                 method: :post, 
-                data: { "turbo-method": :post } %>
+                data: { "turbo-method": :post },
+                class: (current_user.like?(@post) ? "text-red-500" : "text-white") do %>
+                <i class="fa-solid fa-heart text-2xl"></i>
+                <% end %>
             </div>
             <% end %>
         </div>
