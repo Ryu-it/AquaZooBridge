@@ -20,7 +20,7 @@
                 「 <%= @post.body %> 」 
             </div>
             <p class = "text-center mt-12 text-xl">動物園URL</p>
-            <div class= "mt-10 rounded-lg p-8 border bg-lime-900 text-xl text-white text-center"> 
+            <div class= "underline mt-10 rounded-lg p-8 border bg-lime-900 text-xl text-white text-center"> 
                 <%= link_to @post.facility.official_url, @post.facility.official_url, target: "_blank", rel: "noopener" %> 
             </div>
             <% if user_signed_in? %>
@@ -41,6 +41,7 @@
                     <%= link_to "削除", post_path(@post), method: :delete, data: { turbo_method: :delete }, class: "" %>
                 </div>
             <% end %>
+            <%# ライン共有ボタン %>
             <div class="line-share-button mt-8 flex justify-center items-center">
                 <div class="line-it-button" 
                     data-lang="ja" 

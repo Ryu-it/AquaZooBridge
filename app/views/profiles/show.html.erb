@@ -24,7 +24,13 @@
 <%# 投稿をクリックしたときに詳細のurlに飛ぶように %>
       <div
   data-controller="redirect"
-  data-redirect-url-value="<%= post_path(post, category: 'aqua') %>"
+  data-redirect-url-value="<%= 
+    if post.category.name == "aqua"
+      post_path(post, category: "aqua")
+    else
+      post_path(post, category: "zoo")
+    end 
+  %>"
   data-action="click->redirect#navigate"
   role="button"
   class="cursor-pointer"
@@ -45,6 +51,5 @@
       <% end %>
   </div>
 </div>
-
   </div>
 </div>
