@@ -18,31 +18,31 @@
   class="w-full h-screen transition-colors duration-1000 bg-sky-900"
 >
 
-<div class = "flex items-center justify-center h-full min-h-screen text-white">
+<div class = "flex items-center justify-center h-full min-h-screen">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
 <div class = "flex-col space-y-8">
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "username", class: "border rounded-xl py-4 px-12" %>
+    <%= f.label :name, class: "text-white" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "username", class: "bg-white border rounded-xl py-4 px-12" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border rounded-xl py-4 px-12" %>
+    <%= f.label :email, class: "text-white" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border bg-white rounded-xl py-4 px-12" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, class: "text-white" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 以上)</em>
+    <em class = "text-white" >(<%= @minimum_password_length %> 以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "border rounded-xl py-4 px-12"  %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "border bg-white rounded-xl py-4 px-12"  %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "border rounded-xl py-4 px-12"  %>
+    <%= f.label :password_confirmation, class: "text-white" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "border bg-white rounded-xl py-4 px-12"  %>
   </div>
 
   <div class="actions">

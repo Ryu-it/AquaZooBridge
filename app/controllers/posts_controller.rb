@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user)
+                 .order(created_at: :desc)
     case params[:category]
     when "zoo"
       render "zoo_index"
