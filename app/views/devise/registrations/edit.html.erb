@@ -17,20 +17,20 @@
   data-background-lime-class="bg-lime-900"
   class="w-full h-screen transition-colors duration-1000 bg-sky-900"
 >
-<div class = "flex items-center justify-center h-full min-h-screen text-white">
+<div class = "flex items-center justify-center h-full min-h-screen">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
 <div class = "flex flex-col space-y-8">
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "username", class: "border rounded-xl py-4 px-12" %>
+    <%= f.label :name, class: "text-white" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "username", class: "border bg-white rounded-xl py-4 px-12" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border rounded-xl py-4 px-12 mb-8" %>
+    <%= f.label :email, class: "text-white" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border bg-white rounded-xl py-4 px-12 mb-8" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -38,22 +38,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "border rounded-xl py-4 px-12 mb-8" %>
+    <%= f.label :password, class: "text-white" %> <i class = "text-white">(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "border bg-white rounded-xl py-4 px-12 mb-8" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em class = "text-white"><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "border rounded-xl py-4 px-12 mb-8" %>
+    <%= f.label :password_confirmation, class: "text-white" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "border bg-white rounded-xl py-4 px-12 mb-8" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", class: "border rounded-xl py-4 px-12" %>
+    <%= f.label :current_password, class: "text-white" %> <i class = "text-white">(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "border bg-white rounded-xl py-4 px-12" %>
   </div>
 
   <div class="actions">

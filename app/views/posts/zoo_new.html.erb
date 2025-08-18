@@ -9,7 +9,7 @@
       <%= facility_fields.label :name, "動物園の名前", class: "text-white" %>
       <%= facility_fields.text_field :name,
             placeholder: "例：東武動物公園",
-            class: "bg-amber-700 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500",
+            class: "bg-amber-700 mt-2 mb-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500",
             data: { 
               lookup_target: "name",
               action: "input->lookup#fetch"
@@ -41,7 +41,7 @@
             class: "bg-amber-700 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
   </div>
   <div class="">
-            <%= f.label :image, "画像をアップロード" %>
+            <%= f.label :image, "画像をアップロード", class: "text-white" %>
             <%= f.file_field :image, class: "bg-amber-700 mt-2 block w-full border rounded-md p-3 focus:ring-sky-500 focus:border-sky-500" %>
   </div>
   <%= hidden_field_tag :category, "zoo" %>

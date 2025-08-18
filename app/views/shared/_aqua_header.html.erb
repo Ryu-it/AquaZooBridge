@@ -34,6 +34,8 @@
       <%= link_to "水族館に行く", posts_path(category: "aqua"), class: "block px-4 py-2 hover:bg-gray-100" %>
       <%= link_to "動物園に行く", posts_path(category: "zoo"), class: "block px-4 py-2 hover:bg-gray-100" %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "block px-4 py-2 hover:bg-gray-100" %>
+      <%= link_to "マイページ", profile_path, class: "block px-4 py-2 hover:bg-gray-100" %>
+      <%= link_to "ランキング", "#", class: "block px-4 py-2 hover:bg-gray-100" %>
   </div>
 </div>
 
