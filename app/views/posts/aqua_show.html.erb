@@ -41,19 +41,13 @@
             <%= link_to "削除", post_path(@post), method: :delete, data: { turbo_method: :delete }, class: "" %>
         </div>
             <% end %>
-        <div class="line-share-button mt-8 flex justify-center items-center">
-            <div class="line-it-button" 
-                 data-lang="ja" 
-                 data-type="share-a" 
-                 data-env="REAL"
-                 data-url="<%= post_url(@post, category: 'aqua') %>" 
-                 data-text="<%= @post.facility.name %>" 
-                 data-color="default" 
-                 data-size="large" 
-                 data-count="true" 
-                 data-ver="3" 
-                 style="display: none;">
-            </div>
-        </div>
+        <%# ライン共有ボタン %>
+        <%= link_to "LINEでシェア",
+  "https://social-plugins.line.me/lineit/share?url=#{CGI.escape(post_url(@post, category: 'aqua'))}&text=#{ERB::Util.url_encode(@post.facility.name)}",
+  target: "_blank",
+  rel: "noopener",
+  data: { turbo: false },   # Turboが外部リンクを奪わないように
+  class: "inline-flex items-center px-4 py-2 rounded bg-green-600 text-white"
+%>
     </div>
 </div>
