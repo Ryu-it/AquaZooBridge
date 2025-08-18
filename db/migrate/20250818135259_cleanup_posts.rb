@@ -20,4 +20,3 @@ class CleanupPosts < ActiveRecord::Migration[7.2]
     # 元に戻す必要がない一度きりの処理なので空でOK
   end
 end
-
