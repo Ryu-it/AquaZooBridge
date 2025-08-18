@@ -11,10 +11,24 @@
   <%= form_with model: @post, class: "space-y-4 w-full max-w-xl" do |f| %>
   <div class="">
     <%= f.fields_for :facility do |facility_fields| %>
+    <div data-controller="lookup">
+      <div>
       <%= facility_fields.label :name, "水族館の名前", class: "text-white" %>
       <%= facility_fields.text_field :name,
             placeholder: "例：すみだ水族館",
-            class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
+            class: "bg-sky-300 mt-2 mb-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500",
+            data: { 
+              lookup_target: "name",
+              action: "input->lookup#fetch"
+              } %>
+      </div>
+      <div>
+        <%= facility_fields.label :official_url, "水族館のURL", class: "text-white" %>
+        <%= facility_fields.text_field :official_url,
+        class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500",
+        data: { lookup_target: "url" } %>
+      </div>
+    </div>
     <% end %>
   </div>
   <div class="">
@@ -34,7 +48,7 @@
             class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
   </div>
   <div class="">
-            <%= f.label :image, "画像をアップロード" %>
+            <%= f.label :image, "画像をアップロード", class: "text-white" %>
             <%= f.file_field :image, class: "bg-sky-300 mt-2 block w-full border rounded-md p-3 focus:ring-sky-500 focus:border-sky-500" %>
   </div>
   <%= hidden_field_tag :category, "aqua" %>
