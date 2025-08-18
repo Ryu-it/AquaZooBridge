@@ -19,5 +19,8 @@ application.register("lookup", LookupController)
 import RedirectController from "./redirect_controller"
 application.register("redirect", RedirectController)
 
+import ShareController from "./share_controller"
+application.register("share", ShareController)
+
 import ToggleController from "./toggle_controller"
 application.register("toggle", ToggleController)
