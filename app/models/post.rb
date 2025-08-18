@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   validates :word, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 500 }
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
   belongs_to :user
