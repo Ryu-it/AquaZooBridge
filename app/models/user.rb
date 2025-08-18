@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
 
   # 自分が送った通知
   has_many :active_notifications, class_name: "Notification",
@@ -30,5 +31,9 @@ class User < ApplicationRecord
 
   def self.create_unique_string
     SecureRandom.uuid
+  end
+
+  def like?(post)
+    likes.exists?(post_id: post.id)
   end
 end
