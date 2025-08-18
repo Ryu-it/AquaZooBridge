@@ -6,50 +6,55 @@
   data-background-lime-class="bg-lime-900"
   class="min-h-screen transition-colors duration-1000 bg-sky-900"
 >
+  <!-- モバイル: 余白を追加 / PC: 既存を維持 -->
+  <div class="flex flex-col items-center gap-8 py-10 px-4 md:px-0">
 
-  <!-- ★ 縦並びにする & センター揃え -->
-  <div class="flex flex-col items-center gap-8 py-10">
-
-    <!-- プロフィールカード：max-wで幅を決める -->
-    <div class="text-center space-y-6 border bg-white max-w-md w-full p-8 rounded-xl text-lg">
+    <!-- プロフィールカード：モバイルで少し大きめ、PCは従来 -->
+    <div class="text-center space-y-6 border bg-white max-w-md w-full p-6 md:p-8 rounded-xl text-base md:text-lg">
       <div><%= current_user.name %></div>
-      <div><%#= current_user.email %></div>
       <div><%= link_to "編集", edit_user_registration_path, class: "underline text-sky-700" %></div>
     </div>
+
     <!-- ユーザーの投稿 -->
-  <div class = "flex items-center justify-center ">
-  <div class="max-w-7xl mb-10 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <% @posts.each do |post| %>
-      <div class="h-full card-body bg-white border rounded-xl shadow-md p-4 flex flex-col justify-between">
-<%# 投稿をクリックしたときに詳細のurlに飛ぶように %>
-      <div
-  data-controller="redirect"
-  data-redirect-url-value="<%= 
-    if post.category.name == "aqua"
-      post_path(post, category: "aqua")
-    else
-      post_path(post, category: "zoo")
-    end 
-  %>"
-  data-action="click->redirect#navigate"
-  role="button"
-  class="cursor-pointer"
-  data-turbo="false">
-        <div class= "inline-block p-2 rounded-xl text-white bg-sky-900"> 
-          <%= post.user.name %> 
-        </div>
-        <div class= "text-white p-4 text-xl font-bold text-center mt-4 mb-4 bg-sky-900 rounded-xl"> 
-          「 <%= post.word %> 」 
-        </div>
-        <div class="">
-            <% if post.image.attached? %>
-              <%= image_tag post.image %>
-            <% end %>
-        </div>
+    <div class="flex items-center justify-center w-full">
+      <!-- モバイル: ギャップ少し縮める / PC: 従来のgap-8 -->
+      <div class="w-full max-w-7xl mb-12 md:mb-10 mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <% @posts.each do |post| %>
+          <div class="h-full card-body bg-white border rounded-xl shadow-md p-4 flex flex-col justify-between">
+            <%# 投稿をクリックしたときに詳細のurlに飛ぶように %>
+            <div
+              data-controller="redirect"
+              data-redirect-url-value="<%=
+                if post.category.name == 'aqua'
+                  post_path(post, category: 'aqua')
+                else
+                  post_path(post, category: 'zoo')
+                end
+              %>"
+              data-action="click->redirect#navigate"
+              role="button"
+              class="cursor-pointer"
+              data-turbo="false">
+
+              <div class="inline-block p-2 rounded-xl text-white bg-sky-900">
+                <%= post.user.name %>
+              </div>
+
+              <div class="text-white p-4 text-xl font-bold text-center mt-4 mb-4 bg-sky-900 rounded-xl">
+                「 <%= post.word %> 」
+              </div>
+
+              <div>
+                <% if post.image.attached? %>
+                  <%= image_tag post.image, class: "w-full md:w-auto h-auto" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-      </div>
-      <% end %>
+    </div>
+
   </div>
 </div>
-  </div>
-</div>
+

@@ -1,52 +1,61 @@
 <%= render "shared/aqua_header" %>
 <%= render "shared/flash_message" %>
-<div class = "flex items-center justify-center h-full bg-sky-900 min-h-screen">
-  <%= form_with model: @post, class: "space-y-4 w-full max-w-xl" do |f| %>
-  <div class="">
-    <%= f.fields_for :facility do |facility_fields| %>
-    <div data-controller="lookup">
-      <div>
-      <%= facility_fields.label :name, "水族館の名前", class: "text-white" %>
-      <%= facility_fields.text_field :name,
-            placeholder: "例：すみだ水族館",
-            class: "bg-sky-300 mt-2 mb-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500",
-            data: { 
-              lookup_target: "name",
-              action: "input->lookup#fetch"
-              } %>
-      </div>
-      <div>
-        <%= facility_fields.label :official_url, "水族館のURL", class: "text-white" %>
-        <%= facility_fields.text_field :official_url,
-        class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500",
-        data: { lookup_target: "url" } %>
-      </div>
+
+<div class="flex items-center justify-center min-h-screen bg-sky-900 h-full">
+  <%= form_with model: @post, class: "mt-12 w-full max-w-xl space-y-6 px-4 md:space-y-4 md:px-0" do |f| %>
+    <div>
+      <%= f.fields_for :facility do |facility_fields| %>
+        <div data-controller="lookup">
+          <div>
+            <%= facility_fields.label :name, "水族館の名前", class: "text-white text-sm md:text-base" %>
+            <%= facility_fields.text_field :name,
+                  placeholder: "例：すみだ水族館",
+                  class: "bg-sky-300 mt-2 mb-2 block w-full border rounded-md shadow-sm p-4 md:p-3 text-base md:text-lg",
+                  data: { lookup_target: "name", action: "input->lookup#fetch" } %>
+          </div>
+
+          <div>
+            <%= facility_fields.label :official_url, "水族館のURL", class: "text-white text-sm md:text-base" %>
+            <%= facility_fields.text_field :official_url,
+                  class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-4 md:p-3 text-base md:text-lg",
+                  data: { lookup_target: "url" } %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
-  <div class="">
-            <%= f.label :word, "ひとこと", class: "text-white" %>
-            <%= f.text_field :word,
+
+    <div>
+      <%= f.label :word, "ひとこと", class: "text-white text-sm md:text-base" %>
+      <%= f.text_field :word,
             placeholder: "例：ペンギン！！",
-            class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
-  </div>
-  <div class="">
-            <%= f.label :body, "ここが好き！", class: "text-white" %>
-            <%= f.text_area :body, class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500", rows: "10" %>
-  </div>
-  <div class="">
-            <%= f.label :area_id, "都道府県", class: "text-white" %>
-            <%= f.select :area_id, Area.all.collect { |p| [p.name, p.id] },
+            class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-4 md:p-3 text-base md:text-lg" %>
+    </div>
+
+    <div>
+      <%= f.label :body, "ここが好き！", class: "text-white text-sm md:text-base" %>
+      <%= f.text_area :body,
+            class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-4 md:p-3 text-base md:text-lg",
+            rows: "10" %>
+    </div>
+
+    <div>
+      <%= f.label :area_id, "都道府県", class: "text-white text-sm md:text-base" %>
+      <%= f.select :area_id, Area.all.collect { |p| [p.name, p.id] },
             { include_blank: "選択してください" },
-            class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
-  </div>
-  <div class="">
-            <%= f.label :image, "画像をアップロード", class: "text-white" %>
-            <%= f.file_field :image, class: "bg-sky-300 mt-2 block w-full border rounded-md p-3 focus:ring-sky-500 focus:border-sky-500" %>
-  </div>
-  <%= hidden_field_tag :category, "aqua" %>
-  <div class="">
-        <%= f.submit "投稿", class: "bg-neutral-300 hover:bg-neutral-500 py-2 px-4 rounded-md shadow-md transition duration-300" %>
-  </div>
+            class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-4 md:p-3 text-base md:text-lg" %>
+    </div>
+
+    <div>
+      <%= f.label :image, "画像をアップロード", class: "text-white text-sm md:text-base" %>
+      <%= f.file_field :image,
+            class: "bg-sky-300 mt-2 block w-full border rounded-md p-4 md:p-3 text-base md:text-lg" %>
+    </div>
+
+    <%= hidden_field_tag :category, "aqua" %>
+
+    <div>
+      <%= f.submit "投稿",
+            class: "mb-12 block w-full md:w-auto bg-neutral-300 hover:bg-neutral-500 py-3 md:py-2 px-4 rounded-md shadow-md transition duration-300 text-base md:text-lg" %>
+    </div>
   <% end %>
 </div>
