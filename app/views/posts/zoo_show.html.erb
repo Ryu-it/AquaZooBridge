@@ -15,11 +15,11 @@
                     <%= image_tag "kirin.png", class: "" %>
                 <% end %>
             </div>
-            <p class = "text-center mt-12 text-xl">ここが好き！</p>
+            <p class = "text-center mt-12 text-xl">「 思い出・ここが好き 」</p>
             <div class= "mb-8 mt-10 rounded-lg p-8 border bg-lime-900 text-xl text-center text-white"> 
                 「 <%= @post.body %> 」 
             </div>
-            <p class = "text-center mt-12 text-xl">動物園URL</p>
+            <p class = "text-center mt-12 text-xl">「 動物園URL 」</p>
             <div class= "underline mt-10 rounded-lg p-8 border bg-lime-900 text-xl text-white text-center"> 
                 <%= link_to @post.facility.official_url, @post.facility.official_url, target: "_blank", rel: "noopener" %> 
             </div>

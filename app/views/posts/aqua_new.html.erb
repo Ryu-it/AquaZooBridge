@@ -25,6 +25,12 @@
     </div>
 
     <div>
+      <%= f.label :image, "画像をアップロード", class: "text-white text-sm md:text-base" %>
+      <%= f.file_field :image,
+            class: "bg-sky-300 mt-2 block w-full border rounded-md p-4 md:p-3 text-base md:text-lg" %>
+    </div>
+
+    <div>
       <%= f.label :word, "ひとこと", class: "text-white text-sm md:text-base" %>
       <%= f.text_field :word,
             placeholder: "例：ペンギン！！",
@@ -32,7 +38,7 @@
     </div>
 
     <div>
-      <%= f.label :body, "ここが好き！", class: "text-white text-sm md:text-base" %>
+      <%= f.label :body, "思い出・ここが好き", class: "text-white text-sm md:text-base" %>
       <%= f.text_area :body,
             class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-4 md:p-3 text-base md:text-lg",
             rows: "10" %>
@@ -43,12 +49,6 @@
       <%= f.select :area_id, Area.all.collect { |p| [p.name, p.id] },
             { include_blank: "選択してください" },
             class: "bg-sky-300 mt-2 block w-full border rounded-md shadow-sm p-4 md:p-3 text-base md:text-lg" %>
-    </div>
-
-    <div>
-      <%= f.label :image, "画像をアップロード", class: "text-white text-sm md:text-base" %>
-      <%= f.file_field :image,
-            class: "bg-sky-300 mt-2 block w-full border rounded-md p-4 md:p-3 text-base md:text-lg" %>
     </div>
 
     <%= hidden_field_tag :category, "aqua" %>
