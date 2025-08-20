@@ -7,6 +7,12 @@ import { application } from "./application"
 import BackgroundController from "./background_controller"
 application.register("background", BackgroundController)
 
+import BubblesController from "./bubbles_controller"
+application.register("bubbles", BubblesController)
+
+import FootprintsController from "./footprints_controller"
+application.register("footprints", FootprintsController)
+
 import HamburgerController from "./hamburger_controller"
 application.register("hamburger", HamburgerController)
 

@@ -1,5 +1,11 @@
 <%= render "shared/aqua_header" %>
 <%= render "shared/flash_message" %>
+<%# 泡の演出 %>
+<div
+  data-controller="bubbles"
+  data-bubbles-target="container"
+  class="bubbles-area bg-sky-900"
+>
 <div class = "flex items-center justify-center h-full bg-sky-900 min-h-screen">
   <div class="max-w-7xl mb-10 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     <% @posts.each do |post| %>
@@ -28,7 +34,7 @@
           </div>
         </div>
         <% if user_signed_in? %>
-        <div class = "mt-2">
+        <div class="mt-2">
           <%= link_to likes_path(post_id: post.id), 
             method: :post, 
             data: { "turbo-method": :post },
@@ -41,4 +47,6 @@
       <% end %>
     <% end %>
   </div>
+</div>
+
 </div>
