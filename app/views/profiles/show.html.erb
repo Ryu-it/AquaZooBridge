@@ -12,7 +12,10 @@
     <!-- プロフィールカード：モバイルで少し大きめ、PCは従来 -->
     <div class="text-center space-y-6 border bg-white max-w-md w-full p-6 md:p-8 rounded-xl text-base md:text-lg">
       <div><%= current_user.name %></div>
-      <div><%= link_to "編集", edit_user_registration_path, class: "underline text-sky-700" %></div>
+      <div><%= link_to edit_user_registration_path, class: "underline text-sky-700" do %>
+        <i class="fa-solid fa-pen-to-square text-2xl"></i>
+      <% end %>
+      </div>
     </div>
 
     <!-- ユーザーの投稿 -->

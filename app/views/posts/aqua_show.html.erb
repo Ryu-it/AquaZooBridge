@@ -37,8 +37,12 @@
             <%# 投稿したユーザーだけが編集・投稿できる %>
             <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class="flex justify-center items-center mt-8 text-xl text-white space-x-12">
-            <%= link_to "編集", edit_post_path(category: "aqua"), class: "" %>
-            <%= link_to "削除", post_path(@post), method: :delete, data: { turbo_method: :delete }, class: "" %>
+            <%= link_to edit_post_path(category: "aqua"), class: "" do %>
+                <i class="fa-solid fa-pen-to-square text-2xl"></i>
+            <% end %>
+            <%= link_to post_path(@post), method: :delete, data: { turbo_method: :delete }, class: "" do %>
+                <i class="fa-solid fa-trash text-2xl"></i>
+            <% end %>
         </div>
             <% end %>
         <%# ライン共有ボタン %>
