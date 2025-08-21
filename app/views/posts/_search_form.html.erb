@@ -1,0 +1,18 @@
+<%= search_form_for q, url: url do |f| %>
+<div class="mt-8 flex justify-center gap-6 items-center w-full">
+      <div class="">
+            <%= f.collection_select :area_id_eq, @areas, :id, :name,
+            { include_blank: "エリアを選択" },
+            { class: "rounded-md bg-white select select-bordered p-3" } %>
+      </div>
+      <div class="w-1/2">
+            <%= f.search_field :word_or_body_or_facility_name_cont,
+            placeholder: "キーワードを入力",
+            class: "w-full bg-white border rounded-md shadow-sm p-3 focus:ring-sky-500 focus:border-sky-500" %>
+      </div>
+      <%= hidden_field_tag :category, params[:category] %>
+      <div class="">
+      <%= f.submit "検索", class: "rounded-md p-3 w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 rounded-ful" %>
+      </div>
+<% end %>
+</div>

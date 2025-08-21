@@ -4,9 +4,12 @@ class PostsController < ApplicationController
   before_action :authorize_owner!, only: %i[edit update destroy]
 
   def index
-    @posts = Post.includes(:user)
-                 .order(created_at: :desc)
-                 .page(params[:page])
+    @areas = Area.all
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+               .includes(:user)
+               .order(created_at: :desc)
+               .page(params[:page])
     case params[:category]
     when "zoo"
       render "zoo_index"
