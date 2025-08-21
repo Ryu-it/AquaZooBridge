@@ -1,4 +1,4 @@
-<div class="flex p-8 justify-between items-center bg-neutral-300">
+<div class="text-xl flex p-8 justify-between items-center bg-neutral-300">
   <div>
   <%= link_to "ホーム", root_path %>
   </div>
@@ -23,7 +23,7 @@
     <% end %>
       <%#　stimulusでハンバーカーメニューを表示 %>
     <div data-controller="hamburger" class="relative inline-block">
-      <button data-action="click->hamburger#toggle" class="p-2">
+      <button data-action="click->hamburger#toggle" class="p-2 cursor-pointer">
     <!-- 三本線アイコン -->
     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

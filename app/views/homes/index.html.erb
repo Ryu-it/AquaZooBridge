@@ -5,27 +5,29 @@
   data-background-target="bg"
   data-background-sky-class="bg-sky-900"
   data-background-lime-class="bg-lime-900"
-  class="w-full h-screen transition-colors duration-1000 bg-sky-900"
+  class="p-12 w-full min-h-screen transition-colors duration-1000 bg-sky-900"
 >
 <!-- 余白：スマホでは左右に少し、PCは中央寄せ -->
-  <div class="mx-auto h-full max-w-5xl px-4">
+  <div class="min-h-screen mx-auto max-w-5xl px-4">
+
+    <%= render "homes/guide" %>
+
     <!-- スマホ: 縦 / PC: 横 -->
-    <div class="min-h-screen flex flex-col items-strech justify-center gap-12 py-12 md:flex-row md:items-center md:gap-14 md:h-screen">
+    <div class="flex flex-col items-stretch justify-center gap-12 py-14 md:flex-row md:items-center md:gap-30">
 
       <!-- 動物園 -->
       <%= link_to posts_path(category: "zoo"),
-          class: "block border rounded-xl bg-amber-700 text-center text-xl md:text-2xl
-                  px-6 py-8 md:px-14 md:py-14 shadow-sm hover:opacity-90 focus:outline-none focus:ring" do %>
+          class: "text-white block border rounded-xl bg-amber-700 text-center text-xl md:text-3xl
+                  px-6 py-8 md:px-20 md:py-20 shadow-sm hover:opacity-90 focus:outline-none focus:ring" do %>
         動物園に行く
       <% end %>
 
       <!-- 水族館 -->
       <%= link_to posts_path(category: "aqua"),
-          class: "block border rounded-xl bg-sky-300 text-white text-slate-900 text-center text-xl md:text-2xl
-                  px-6 py-8 md:px-14 md:py-14 shadow-sm hover:opacity-90 focus:outline-none focus:ring" do %>
+          class: "block border rounded-xl bg-sky-300 text-center text-xl md:text-3xl
+                  px-6 py-8 md:px-20 md:py-20 shadow-sm hover:opacity-90 focus:outline-none focus:ring" do %>
         水族館に行く
       <% end %>
-
     </div>
   </div>
 </div>
