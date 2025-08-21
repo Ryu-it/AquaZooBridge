@@ -41,5 +41,8 @@
       </div>
       <% end %>
     <% end %>
+    <div class="mt-4 col-span-full flex justify-center">
+      <%= paginate @posts, window: 1, outer_window: 1 %>
+    </div>
   </div>
 </div>
