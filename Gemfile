@@ -92,3 +92,5 @@ gem "font-awesome-sass", "~> 6.0"
 gem "kaminari", "1.2.2"
 
 gem "kaminari-tailwind"
+
+gem "ransack"

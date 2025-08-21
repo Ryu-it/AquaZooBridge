@@ -1,8 +1,10 @@
 <%= render "shared/zoo_header" %>
 <%= render "shared/flash_message" %>
-
 <div class = "flex items-center justify-center h-full bg-lime-900 min-h-screen">
   <div class="max-w-7xl mb-10 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div class="col-span-full flex justify-center">
+      <%= render "search_form", q: @q, url: posts_path(category: "zoo") %>
+    </div>
     <% @posts.each do |post| %>
       <% if post.category.name == "zoo" %>
       <div class="h-full card-body bg-amber-700 border rounded-xl shadow-md p-4 flex flex-col justify-between">

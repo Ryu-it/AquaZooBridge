@@ -7,4 +7,10 @@ class Facility < ApplicationRecord
   }, allow_blank: true
 
   validates :name, presence: true, length: { maximum: 50 }
+
+  private
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[ name ] # ← 検索対象にしてよいカラムだけを配列で返す
+  end
 end

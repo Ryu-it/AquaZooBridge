@@ -35,4 +35,12 @@ class Post < ApplicationRecord
       errors.add(:image, "は10MB以下にしてください")
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[ word body area_id ] # ← 検索対象にしてよいカラムだけを配列で返す
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[ area user category facility ]
+  end
 end
