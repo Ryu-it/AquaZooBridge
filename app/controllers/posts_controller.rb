@@ -7,9 +7,9 @@ class PostsController < ApplicationController
     @areas = Area.all
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
-               .includes(:user)
+               .preload(:user)
                .order(created_at: :desc)
-               .page(params[:page])
+               .page(params[:page]).per(9)
     case params[:category]
     when "zoo"
       render "zoo_index"
