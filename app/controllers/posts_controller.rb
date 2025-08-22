@@ -6,10 +6,18 @@ class PostsController < ApplicationController
   def index
     @areas = Area.all
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
-               .preload(:user)
-               .order(created_at: :desc)
+    scope = @q.result(distinct: true)
+
+    if params[:category].present?
+      scope = scope.joins(:category).where(categories: { name: params[:category] })
+    end
+
+    @posts = scope
+               .select("posts.*").distinct
+               .order("posts.created_at DESC, posts.id DESC")
                .page(params[:page]).per(9)
+               .preload(:user, :category)
+
     case params[:category]
     when "zoo"
       render "zoo_index"
