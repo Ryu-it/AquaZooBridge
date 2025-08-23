@@ -128,7 +128,7 @@ class PostsController < ApplicationController
   # 投稿のidと今のユーザーのidを比較して遷移してメッセージ
   def authorize_owner!
     unless @post.user_id == current_user.id
-      redirect_to root_path, alert: "権限がありません"
+      redirect_to root_path, alert: "権限がありません" and return
     end
   end
 

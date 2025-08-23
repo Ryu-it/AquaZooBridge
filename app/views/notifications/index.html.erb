@@ -1,4 +1,5 @@
 <%= render "shared/normal_header" %>
+<%= render "shared/flash_message" %>
 <div 
   data-controller="background"
   data-background-target="bg"
@@ -19,5 +20,9 @@
     <% end %>
 <% end %>
 </div>
+<%= button_to "すべて既読にする",
+      mark_notifications_as_read_notifications_path,
+      method: :post,
+      class: "px-3 py-2 rounded bg-white cursor-pointer" %>
 </div>
 </div>
