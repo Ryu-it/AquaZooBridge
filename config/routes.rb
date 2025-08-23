@@ -19,9 +19,11 @@ Rails.application.routes.draw do
   resources :posts, only: %i[new create index show edit update destroy]
     resources :likes, only: %i[create destroy]
 
-  resource :profile, only: %i[show update]
+  resource :profile, only: %i[show]
 
-  resources :notifications, only: %i[index]
+  resources :notifications, only: %i[index] do
+    post :mark_notifications_as_read, on: :collection
+  end
 
   resource :lookups, only: %i[create]
 end
