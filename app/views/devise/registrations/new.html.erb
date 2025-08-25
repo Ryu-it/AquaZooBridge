@@ -35,7 +35,7 @@
   <div class="field">
     <%= f.label :password, class: "text-white" %>
     <% if @minimum_password_length %>
-    <em class = "text-white" >(<%= @minimum_password_length %> 以上)</em>
+    <em class = "text-white" >(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class: "border bg-white rounded-xl py-4 px-12"  %>
   </div>
