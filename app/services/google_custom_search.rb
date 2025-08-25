@@ -9,6 +9,8 @@ class GoogleCustomSearch
 
   # 検索リクエストを送受信して、URLを取得
   def official_site_url_for(name)
+    Rails.logger.info("[GCS] CALL official_site_url_for name=#{name}")
+
     res = self.class.get("", query: {
       key: @api_key, cx: @cx,
       q: "#{name} 公式サイト",
