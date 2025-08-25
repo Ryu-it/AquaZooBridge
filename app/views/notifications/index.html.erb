@@ -25,4 +25,7 @@
       method: :post,
       class: "px-3 py-2 rounded bg-white cursor-pointer" %>
 </div>
+<div class="mt-4 flex justify-center">
+  <%= paginate @notifications, window: 1, outer_window: 1 %>
+</div>
 </div>
