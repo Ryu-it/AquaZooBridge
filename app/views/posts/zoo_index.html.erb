@@ -29,16 +29,7 @@
             <% end %>
           </div>
         </div>
-        <% if user_signed_in? %>
-        <div class = "mt-2">
-          <%= link_to likes_path(post_id: post.id), 
-            method: :post, 
-            data: { "turbo-method": :post },
-            class: (current_user.like?(post) ? "text-red-500" : "text-white") do %>
-            <i class="fa-solid fa-heart text-2xl"></i>
-            <% end %>
-        </div>
-        <% end %>
+        <%= render partial: "likes/like_button", locals: { post: post } %>
       </div>
     <% end %>
     <div class="mt-4 col-span-full flex justify-center">
