@@ -4,6 +4,7 @@ class NotificationsController < ApplicationController
     @notifications = current_user.passive_notifications
                                  .includes(:visitor, :notifiable)
                                  .order(created_at: :desc)
+                                 .page(params[:page]).per(9)
   end
 
   # 未読通知を一気に既読
