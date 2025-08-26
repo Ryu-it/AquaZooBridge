@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   end
 
   resource :lookups, only: %i[create]
+
+  resource :ranking, only: %i[show]
 end
