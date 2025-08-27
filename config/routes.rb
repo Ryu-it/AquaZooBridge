@@ -16,8 +16,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "homes#index"
 
-  resources :posts, only: %i[new create index show edit update destroy]
+  resources :posts, only: %i[new create index show edit update destroy] do
+    member do
+      post :track_official_click
+    end
     resources :likes, only: %i[create destroy]
+  end
 
   resource :profile, only: %i[show]
 
