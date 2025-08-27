@@ -18,7 +18,17 @@ class Post < ApplicationRecord
   validate :image_content_type
   validate :image_size
 
+  before_validation :normalize_facility
+
   private
+
+  def normalize_facility
+    if facility && facility.name.present?
+      self.facility = Facility.find_or_create_by!(name: facility.name) do |f|
+        f.official_url = facility.official_url
+      end
+    end
+  end
 
   # 特定の画像だけを保存
   def image_content_type
