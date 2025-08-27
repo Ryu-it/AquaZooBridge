@@ -10,6 +10,9 @@ application.register("background", BackgroundController)
 import BubblesController from "./bubbles_controller"
 application.register("bubbles", BubblesController)
 
+import ClickTrackController from "./click_track_controller"
+application.register("click-track", ClickTrackController)
+
 import FootprintsController from "./footprints_controller"
 application.register("footprints", FootprintsController)
 

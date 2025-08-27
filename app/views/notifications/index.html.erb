@@ -9,15 +9,30 @@
 >
 
 <div class="flex flex-col items-center gap-8 py-10">
-<div class="text-center space-y-6 border bg-white max-w-md w-full p-8 rounded-xl text-lg">
+<div class="text-center space-y-6 border bg-white max-w-5xl w-full p-8 rounded-xl text-lg">
 <% if @notifications.present? %>
-    <% @notifications.each do |notification| %>
-
-    <!-- 通知者の情報 -->
-        <div class = "">
-          <%= notification.visitor.name %>さんがいいねしました
-        </div>
-    <% end %>
+  <% @notifications.each do |notification| %>
+    <div class="">
+      <% case notification.action %>
+      <% when "like" %>
+        <span class="text-xl font-bold">
+          「 <%= notification.visitor.name %> 」
+        </span>さんが
+        <span class="text-xl font-bold">
+        「 <%= notification.notifiable.post.word %> 」 
+        </span>にいいねしました
+      <% when "visited_url" %>
+      <span class="text-xl font-bold">
+        「 <%= notification.visitor.name %> 」
+      </span>さんがあなたのURLから
+      <span class="text-xl font-bold">
+      「 <%= notification.notifiable.facility.name %> 」
+      </span>公式サイトに訪問しました
+      <% else %>
+        不明な通知です
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 </div>
 <%= button_to "すべて既読にする",

@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!, only: %i[index mark_notifications_as_read]
   def index
     @notifications = current_user.passive_notifications
-                                 .includes(:visitor, :notifiable)
+                                 .includes(:visitor, notifiable: :facility)
                                  .order(created_at: :desc)
                                  .page(params[:page]).per(9)
   end

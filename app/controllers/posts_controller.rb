@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy track_official_click]
   before_action :set_post, only: %i[edit update destroy]
   before_action :authorize_owner!, only: %i[edit update destroy]
 
@@ -116,6 +116,12 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = "削除に成功しました"
     redirect_to root_path
+  end
+
+  def track_official_click
+    @post = Post.find(params[:id])
+    CreateNotification.url_visit(visitor: current_user, post: @post)
+    head :no_content
   end
 
   private

@@ -1,7 +1,7 @@
 class Notification < ApplicationRecord
   belongs_to :notifiable, polymorphic: true
 
-  enum action: { like: 0 }
+  enum action: { like: 0, visited_url: 1 }
 
   # 通知を送ったユーザー
   belongs_to :visitor, class_name: "User"
