@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "homes#index"
 
+  # Health check endpoint for Kubernetes or other orchestrators
+  get "/healthz", to: "health#show"
+
   resources :posts, only: %i[new create index show edit update destroy] do
     member do
       post :track_official_click
