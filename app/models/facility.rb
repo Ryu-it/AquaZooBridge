@@ -4,11 +4,9 @@ class Facility < ApplicationRecord
   validates :official_url, format: {
     with: URI::DEFAULT_PARSER.make_regexp(%w[http https]),
     message: "有効なURLを入力してください（http://またはhttps://で始まる必要があります）"
-  }, allow_blank: true
+  }, presence: true
 
-  validates :name, presence: true, length: { maximum: 50 }
-
-  validates :name, uniqueness: true
+  validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
 
   private
 

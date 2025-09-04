@@ -24,7 +24,7 @@ class Post < ApplicationRecord
 
   def normalize_facility
     if facility && facility.name.present?
-      self.facility = Facility.find_or_create_by!(name: facility.name) do |f|
+      self.facility = Facility.find_or_create_by(name: facility.name) do |f|
         f.official_url = facility.official_url
       end
     end

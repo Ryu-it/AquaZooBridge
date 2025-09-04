@@ -10,13 +10,10 @@ class LookupsController < ApplicationController
       render json: { name: facility.name, url: facility.official_url }
     else
       # DBにない場合のみAPIを叩く
-      url = Rails.cache.fetch([ "official_site", name ], expires_in: 1.day) do
-        GoogleCustomSearch.new.official_site_url_for(name)
-      end
+      url = GoogleCustomSearch.new.official_site_url_for(name)
 
       if url.present?
-        facility = Facility.create!(name: name, official_url: url)
-        render json: { name: facility.name, url: facility.official_url }
+        render json: { name: name, url: url }
       else
         render json: { error: "見つかりませんでした" }, status: :not_found
       end
