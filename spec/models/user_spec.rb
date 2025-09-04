@@ -89,7 +89,7 @@ RSpec.describe User, type: :model do
       user = User.create!(name: "太郎", email: "aro@example.com", password: "password")
       category = Category.create!(name: "aqua")
       area = Area.create!(name: "北海道")
-      facility = Facility.create!(name: "テスト動物園")
+      facility = Facility.create!(name: "テスト動物園", official_url: "http://example.com")
       post = Post.create!(user: user, category: category, area: area, facility: facility, word: "ワード", body: "本文")
 
       expect {
