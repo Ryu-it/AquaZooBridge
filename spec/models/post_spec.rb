@@ -93,14 +93,14 @@ RSpec.describe Post, type: :model do
       expect(post).not_to be_valid
     end
 
-    it "Post.imageのbyte_sizeが10MB以上の時は失敗" do
+    it "Post.imageのbyte_sizeが16MB以上の時は失敗" do
       user = User.create!(name: "太郎", email: "aro@example.com", password: "password")
       category = Category.create!(name: "aqua")
       area = Area.create!(name: "北海道")
       facility = Facility.new(name: "テスト動物園")
 
       image = ActiveStorage::Blob.create_and_upload!(
-    io: StringIO.new("a" * (11.megabytes)), # 中身は何でもOK
+    io: StringIO.new("a" * (16.megabytes)), # 中身は何でもOK
     filename: "test.png",
     content_type: "image/png"
   )

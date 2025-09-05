@@ -1,6 +1,6 @@
 class LookupsController < ApplicationController
   def create
-    name = params.require(:lookup).require(:name)
+    name = params.require(:name)
 
     # まずDBを探す
     facility = Facility.find_by(name: name)

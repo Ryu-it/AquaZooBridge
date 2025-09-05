@@ -41,7 +41,7 @@ class Post < ApplicationRecord
 
   def image_size
     return unless image.attached? && image.blob
-    if image.blob.byte_size > 10.megabytes
+    if image.blob.byte_size > 15.megabytes
       errors.add(:image, "は10MB以下にしてください")
     end
   end
