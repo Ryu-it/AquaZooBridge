@@ -20,7 +20,7 @@ export default class extends Controller {
           "Content-Type": "application/json",
           "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content
         },
-        body: JSON.stringify({ name: name })
+        body: JSON.stringify({ name })
       })
         .then(res => res.json())
         .then(data => {
