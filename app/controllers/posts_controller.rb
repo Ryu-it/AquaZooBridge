@@ -54,22 +54,18 @@ class PostsController < ApplicationController
 
       if @post.category.name == "zoo"
         redirect_to posts_path(category: "zoo")
-      elsif @post.category.name == "aqua"
-        redirect_to posts_path(category: "aqua")
       else
-        redirect_to root_path
+        redirect_to posts_path(category: "aqua")
       end
 
     else
       flash.now[:alert] = "投稿に失敗しました"
 
       # カテゴリーに応じて render を変える
-      if @post.category&.name == "zoo"
+      if @post.category.name == "zoo"
         render :zoo_new, status: :unprocessable_entity
-      elsif @post.category&.name == "aqua"
-        render :aqua_new, status: :unprocessable_entity
       else
-        render :new, status: :unprocessable_entity
+        render :aqua_new, status: :unprocessable_entity
       end
     end
   end
@@ -89,10 +85,8 @@ class PostsController < ApplicationController
 
       if @post.category.name == "zoo"
         redirect_to posts_path(category: "zoo")
-      elsif @post.category.name == "aqua"
-        redirect_to posts_path(category: "aqua")
       else
-        redirect_to root_path
+        redirect_to posts_path(category: "aqua")
       end
 
     else
@@ -101,10 +95,8 @@ class PostsController < ApplicationController
       # カテゴリーに応じて render を変える
       if @post.category&.name == "zoo"
         render :zoo_edit, status: :unprocessable_entity
-      elsif @post.category&.name == "aqua"
-        render :aqua_edit, status: :unprocessable_entity
       else
-        render :edit, status: :unprocessable_entity
+        render :aqua_edit, status: :unprocessable_entity
       end
     end
   end
