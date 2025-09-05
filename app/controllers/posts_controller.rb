@@ -93,7 +93,7 @@ class PostsController < ApplicationController
       flash.now[:alert] = "編集に失敗しました"
 
       # カテゴリーに応じて render を変える
-      if @post.category&.name == "zoo"
+      if @post.category.name == "zoo"
         render :zoo_edit, status: :unprocessable_entity
       else
         render :aqua_edit, status: :unprocessable_entity
