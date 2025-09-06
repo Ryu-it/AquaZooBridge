@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy track_official_click]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authorize_owner!, only: %i[edit update destroy]
-  before_action :check_params_category
+  before_action :check_params_category, only: %i[new create edit update index show]  
 
   def index
       @areas = Area.all
