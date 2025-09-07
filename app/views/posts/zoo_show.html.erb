@@ -44,24 +44,8 @@
                         <i class="fa-solid fa-trash text-2xl"></i>
                     <% end %>
                 </div>
-            <% end %>
-            <%# ライン共有ボタン %>
-            <div class="line-share-button mt-8 flex justify-center items-center">
-                <div class="line-it-button" 
-                    data-lang="ja" 
-                    data-type="share-a" 
-                    data-env="REAL"
-                    data-url="<%= post_url(@post, category: "zoo") %>" 
-                    data-text="<%= @post.facility.name %>" 
-                    data-color="default" 
-                    data-size="large" 
-                    data-count="true" 
-                    data-ver="3" 
-                    style="display: none;">
-                </div>
-            </div>
 
-            <%# xの共有ボタン %>
+<%# xの共有ボタン %>
             <% title = @post.facility&.name.presence %>
             <% ogimg = @post.image.attached? ? url_for(@post.image) : image_url("AquaZooBridge.png") %>
 
@@ -85,6 +69,25 @@
 Xでシェア
 <% end %>
 </div>
+
+            <% end %>
+            <%# ライン共有ボタン %>
+            <div class="line-share-button mt-8 flex justify-center items-center">
+                <div class="line-it-button" 
+                    data-lang="ja" 
+                    data-type="share-a" 
+                    data-env="REAL"
+                    data-url="<%= post_url(@post, category: "zoo") %>" 
+                    data-text="<%= @post.facility.name %>" 
+                    data-color="default" 
+                    data-size="large" 
+                    data-count="true" 
+                    data-ver="3" 
+                    style="display: none;">
+                </div>
+            </div>
+
+            
 
 
     </div>
