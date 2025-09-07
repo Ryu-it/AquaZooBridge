@@ -26,6 +26,30 @@ class PostsController < ApplicationController
   end
 
   def show
+    title = @post.facility&.name.presence || "AquaZooBridge"
+    ogimg =
+    if @post.image.attached?
+      rails_blob_url(@post.image, only_path: false)
+    else
+      view_context.image_url("AquaZooBridge.png")
+    end
+
+    set_meta_tags(
+      title: title,
+      og: {
+        title: title,
+        type: "article",
+        url: request.original_url,
+        image: ogimg,
+        description: "#{title}の投稿をチェックしよう！" # 説明文も追加
+      },
+      twitter: {
+        card: "summary_large_image",
+        image: ogimg,
+        title: title # Twitterカード用のタイトルも明示的に設定
+      }
+    )
+
     case params[:category]
     when "zoo"
       render "zoo_show"
