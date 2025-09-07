@@ -44,30 +44,7 @@
                         <i class="fa-solid fa-trash text-2xl"></i>
                     <% end %>
                 </div>
-
-<%# xの共有ボタン %>
-            <% title = @post.facility&.name.presence %>
-            <% ogimg =
-  if @post.image.attached?
-    rails_blob_url(@post.image, only_path: false)
-  else
-    image_url("AquaZooBridge.png")
-  end
-    %>
-
-<% set_meta_tags(
-     title:       title,
-     og: {
-       title:       title,
-       type:        "article",
-       url:         request.original_url,
-       image:       ogimg
-     },
-     twitter: {
-       card:  "summary_large_image",
-       image: ogimg
-     }
-   ) %>
+<%# xのシェア機能 %>
 <div class="mt-8 flex justify-center items-center">
    <% share_url = "https://twitter.com/intent/tweet?url=#{CGI.escape(request.original_url)}&text=#{CGI.escape(title)}" %>
 
