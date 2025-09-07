@@ -78,6 +78,10 @@ Rails.application.configure do
   # caching is enabled.
   config.action_mailer.perform_caching = false
 
+  # xでのプレビューボットに送る絶対urlを設定
+  config.action_controller.default_url_options = { host: "aquazoobridge.onrender.com", protocol: "https" }
+  config.asset_host = "https://aquazoobridge.onrender.com"
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
