@@ -47,7 +47,13 @@
 
 <%# xの共有ボタン %>
             <% title = @post.facility&.name.presence %>
-            <% ogimg = @post.image.attached? ? url_for(@post.image) : image_url("AquaZooBridge.png") %>
+            <% ogimg =
+  if @post.image.attached?
+    rails_blob_url(@post.image, only_path: false)
+  else
+    image_url("AquaZooBridge.png")
+  end
+    %>
 
 <% set_meta_tags(
      title:       title,
