@@ -94,3 +94,5 @@ gem "kaminari", "1.2.2"
 gem "kaminari-tailwind"
 
 gem "ransack"
+
+gem "meta-tags"

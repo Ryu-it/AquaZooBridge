@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy track_official_click]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authorize_owner!, only: %i[edit update destroy]
-  before_action :check_params_category, only: %i[new create edit update index show]  
+  before_action :check_params_category, only: %i[new edit update index show]
 
   def index
       @areas = Area.all
@@ -53,9 +53,9 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿に成功しました"
 
       if @post.category.name == "zoo"
-        redirect_to posts_path(category: "zoo")
+        redirect_to post_path(@post, category: "zoo")
       else
-        redirect_to posts_path(category: "aqua")
+        redirect_to post_path(@post, category: "aqua")
       end
 
     else

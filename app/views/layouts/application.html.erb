@@ -9,6 +9,9 @@
 
     <%= yield :head %>
 
+    <%# メタタグを簡単に表示できるように %>
+    <%= display_meta_tags %>
+
     <link rel="manifest" href="/manifest.json">
     <%# タブの画像を変更 %>
     <%= favicon_link_tag "AquaZooBridge.png" %>
