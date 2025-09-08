@@ -60,5 +60,13 @@
                 style="display: none;">
             </div>
         </div>
+                    <%# xのシェア機能 %>
+<div class="mt-8 flex justify-center items-center">
+   <% share_url = "https://twitter.com/intent/tweet?url=#{CGI.escape(request.original_url)}&text=#{CGI.escape(title)}" %>
+
+<%= link_to share_url, target: "_blank", rel: "noopener noreferrer", class: "bg-sky-500 inline-block text-white px-4 py-2 rounded-lg" do %>
+Xでシェア
+<% end %>
+</div>
     </div>
 </div>
